@@ -1,9 +1,6 @@
 version: 2
 jobs:
   build:
-    branches:
-      only:
-        - master
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
@@ -36,6 +33,11 @@ jobs:
           name: Zip Artifact
           command: |
             zip index.zip index.js
+
+      - run:
+          name: Upload the zip of lambda to S3 Bucket
+          command: |
+            aws s3 cp index.zip s3://${S3_BUCKET_ADDR}/index.zip
       
       - run:
           name: Update lambdaFunction code
