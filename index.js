@@ -1,0 +1,1 @@
+exports.forgotpasswordResetlambda = function (event, context, callback){ console.log('Here it is'); callback(null); }
