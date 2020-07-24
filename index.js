@@ -67,6 +67,7 @@ exports.forgotpasswordResetlambda = function(event, context, callback) {
           var acknowlegement = ses.sendEmail(email_arguments_lambda).promise();
           acknowlegement
             .then(function(data) {
+              console.log("Email Sent Successfully");
               console.log(data.MessageId);
             })
             .catch(function(err) {
