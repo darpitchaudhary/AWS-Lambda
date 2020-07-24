@@ -32,14 +32,14 @@ jobs:
       - run:
           name: Zip Artifact
           command: |
-            zip index.zip index.js
+            zip serverless.zip index.js
 
       - run:
           name: Upload the zip of lambda to S3 Bucket
           command: |
-            aws s3 cp index.zip s3://${S3_BUCKET_ADDR}/index.zip
+            aws s3 cp serverless.zip s3://${S3_BUCKET_ADDR}/serverless.zip
       
       - run:
           name: Update lambdaFunction code
           command: |
-            aws lambda update-function-code --function-name forgotpasswordResetlambda --s3-bucket ${S3_BUCKET_ADDR} --region us-east-1 --s3-key index.zip
+            aws lambda update-function-code --function-name forgotpasswordResetlambda --s3-bucket ${S3_BUCKET_ADDR} --region us-east-1 --s3-key serverless.zip
