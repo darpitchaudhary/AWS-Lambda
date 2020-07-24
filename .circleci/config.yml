@@ -42,4 +42,4 @@ jobs:
       - run:
           name: Update lambdaFunction code
           command: |
-            aws lambda update-function-code --function-name passwordReset --s3-bucket ${S3_BUCKET_ADDR} --region us-east-1 --s3-key index.zip
+            aws lambda update-function-code --function-name forgotpasswordResetlambda --s3-bucket ${S3_BUCKET_ADDR} --region us-east-1 --s3-key index.zip
