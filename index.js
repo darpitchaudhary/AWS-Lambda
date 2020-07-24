@@ -15,7 +15,7 @@ exports.forgotpasswordResetlambda = function(event, context, callback) {
   //Extracting the token from the link via 
   var link = messageDataJson.link;
   var reg_pattern_token = /(?!.*=)(.*)$/;
-  var token = link.match(reg_pattern_token).toString();
+  var token = link.match(reg_pattern_token)[0].toString();
   console.log("Link: "+link);
   console.log("Token: "+token);
   
